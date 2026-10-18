@@ -2130,6 +2130,17 @@ function InfoCell({
       >
         {children ?? value ?? "—"}
       </div>
+
+      {/* Allbridge cross-chain deposits */}
+      <div className="mt-10 mb-3">
+        <h2 className="font-semibold text-slate-800">Cross-Chain Deposits (Allbridge)</h2>
+        <p className="mt-1 text-sm text-slate-500">Incoming bridge transfers · refreshes every 15 s</p>
+      </div>
+      <BridgeDepositMonitor
+        deposits={bridge.data?.deposits ?? null}
+        loading={bridge.loading}
+        error={bridge.error}
+      />
     </div>
   );
 }

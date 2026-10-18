@@ -532,8 +532,22 @@ export default function OverviewPage() {
         </div>
       )}
 
+      {/* Admin Audit Log */}
+      <div className="mt-10 mb-6">
+        <h2 className="text-lg font-semibold text-slate-900">Admin Audit Log</h2>
+        <p className="mt-1 text-sm text-slate-500">
+          Configuration changes, emergency pauses, and other administrative actions.
+        </p>
+      </div>
+
+      <AuditLogTable
+        logs={auditData?.logs ?? null}
+        loading={auditLoading}
+        error={auditError}
+      />
+
       <p className="mt-4 text-xs text-slate-400">
-        Social stats refresh every 15 s · Vault stats refresh every 30 s
+        Social stats refresh every 15 s · Vault stats and audit log refresh every 30 s
       </p>
 
       {/* ── #1008: Payout Statistics Admin Indicators ─────────────────────── */}
